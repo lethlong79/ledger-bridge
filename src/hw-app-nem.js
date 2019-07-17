@@ -77,7 +77,7 @@ export default class Nem {
      */
     async signTransaction(path, rawTxHex) {
         const bipPath = BIPPath.fromString(path).toPathArray();
-        const rawTx = new Buffer(rawTxHex, "hex");
+        const rawTx = Buffer.from(rawTxHex, "hex");
         const curveMask = 0x80;
 
         const apdus = [];
@@ -147,7 +147,6 @@ export default class Nem {
      * }
      */
     async getAppConfiguration() {
-        console.log("da vo lay du lieu");
         const response = await this.transport.send(0xe0, 0x06, 0x00, 0x00);
         const result = {};
         result.version = "" + response[1] + "." + response[2] + "." + response[3];

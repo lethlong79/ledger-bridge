@@ -5,7 +5,7 @@ import NemH from "./hw-app-nem";
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+const port = 21335;
 
 // Enabling CORS on Node JS
 app.use(function(req, res, next) {
