@@ -51,6 +51,9 @@ async function getAccount(hdKeypath, network, label) {
         .catch(err => {
             throw err;
         });
+
+    transport.close();
+    
     return ({
         "brain": false,
         "algo": "ledger",
@@ -77,6 +80,8 @@ async function signTransaction(hdKeypath, serializedTx) {
         .catch(err => {
             throw err;
         });
+
+    transport.close();
 
     return sig.signature;
 }
