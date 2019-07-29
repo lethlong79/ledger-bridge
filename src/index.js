@@ -35,25 +35,19 @@ async function solveRequest(req) {
         case "signTransaction":
             return signTransaction(req.hdKeypath, req.serializedTx);
         default:
-            console.log("3")
+            throw "Can not recognize your request!!!"
     }
 }
 
 async function getAccount(hdKeypath, network, label) {
-    const transport = await TransportNodeHid.create()
-        .catch(err => {
-            throw err.message;
-        });
+    const transport = await TransportNodeHid.open("");
 
     const nemH = new NemH(transport);
 
-    let result = await nemH.getAddress(hdKeypath)
-        .catch(err => {
-            throw err;
-        });
+    let result = await nemH.getAddress(hdKeypath);
 
     transport.close();
-    
+
     return ({
         "brain": false,
         "algo": "ledger",
@@ -69,17 +63,11 @@ async function getAccount(hdKeypath, network, label) {
 }
 
 async function signTransaction(hdKeypath, serializedTx) {
-    const transport = await TransportNodeHid.create()
-        .catch(err => {
-            throw err.message;
-        });
+    const transport = await TransportNodeHid.open("");
 
     const nemH = new NemH(transport);
 
     let sig = await nemH.signTransaction(hdKeypath, serializedTx)
-        .catch(err => {
-            throw err;
-        });
 
     transport.close();
 
