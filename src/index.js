@@ -44,7 +44,8 @@ async function getAccount(hdKeypath, network, label) {
 
     const nemH = new NemH(transport);
 
-    let result = await nemH.getAddress(hdKeypath);
+    let result = await nemH.getAddress(hdKeypath)
+        .catch(transport.close());
 
     transport.close();
 
@@ -68,6 +69,7 @@ async function signTransaction(hdKeypath, serializedTx) {
     const nemH = new NemH(transport);
 
     let sig = await nemH.signTransaction(hdKeypath, serializedTx)
+        .catch(transport.close());
 
     transport.close();
 
