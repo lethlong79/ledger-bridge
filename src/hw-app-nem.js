@@ -128,9 +128,10 @@ export default class Nem {
         //return response.slice(0, response.length - 2).toString("hex");
 
         let h = response.toString("hex");
+        
         return {
             signature: h.slice(0, 128),
-            publicKey: h.slice(130, 194),
+            publicKey: rawTxHex.slice(32, 96),
             path: path
         };
     }

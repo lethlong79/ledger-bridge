@@ -1,31 +1,29 @@
 {
-    "private": true,
-    "name": "ledger-bridge",
-    "version": "0.1.0",
-    "main": "index.js",
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@ledgerhq/hw-transport-node-hid": "^4.38.6",
-        "babel-polyfill": "^6.26.0",
-        "bip32-path": "^0.4.2",
-        "body-parser": "^1.19.0"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-preset-env": "^1.7.0",
-        "babel-preset-flow": "^6.23.0",
-        "babel-preset-stage-0": "^6.24.1",
-        "chai": "^3.5.0",
-        "chai-http": "^2.0.1",
-        "mocha": "^2.4.5",
-        "flow-bin": "^0.92.1"
-    },
-    "scripts": {
-        "serve": "npm run clean && npm run build && npm run start",
-        "start": "node lib/index.js",
-        "clean": "rm -rf lib",
-        "build": "babel --source-maps -d lib src",
-        "watch": "babel --watch --source-maps -d lib src",
-        "test": "mocha --timeout 10000"
-    }
+  "private": true,
+  "name": "ledger-bridge",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@ledgerhq/hw-transport-node-hid": "^5.10.0",
+    "babel-polyfill": "^6.26.0",
+    "bip32-path": "^0.4.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "flow-bin": "^0.92.1"
+  },
+  "scripts": {
+    "serve": "npm run clean && npm run build && npm run start",
+    "start": "node lib/index.js",
+    "clean": "rm -rf lib",
+    "build": "babel --source-maps -d lib src",
+    "watch": "babel --watch --source-maps -d lib src",
+    "test": "mocha --timeout 10000"
+  }
 }
