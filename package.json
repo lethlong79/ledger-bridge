@@ -8,8 +8,8 @@
     "@ledgerhq/hw-transport-node-hid": "^5.10.0",
     "babel-polyfill": "^6.26.0",
     "bip32-path": "^0.4.2",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
